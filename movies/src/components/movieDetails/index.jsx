@@ -21,6 +21,16 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
+/**
+ * Renders the detailed information for a specific movie.
+ * This component displays the movie's overview, genres, runtime, revenue,
+ * vote average, release date, and production countries.
+ * It also includes a Floating Action Button (FAB) that opens a drawer to show movie reviews.
+ *
+ * @param {object} props - The component props.
+ * @param {object} props.movie - The movie object containing the details to be displayed.
+ * @returns {JSX.Element} A React component that renders the movie details.
+ */
 const MovieDetails = ({ movie }) => {  // Don't miss this!
 const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -59,6 +69,15 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           label={`${movie.vote_average} (${movie.vote_count})`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+      </Paper>
+      
+      <Paper component="ul" sx={{...root}}>
+        <Chip label="Production Countries" sx={{...chip}} color="primary" />
+        {movie.production_countries.map((c) => (
+          <li key={c.name}>
+            <Chip label={c.name} sx={{...chip}} />
+          </li>
+        ))}
       </Paper>
             <Fab
         color="secondary"
