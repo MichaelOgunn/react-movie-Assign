@@ -4,6 +4,7 @@ import Spinner from "../components/spinner";
 import { getUpcomingMovies } from "../api/tmdb-api";
 import PageTemplate from "../components/templateMovieListPage";
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToMustWatch from '../components/cardIcons/mustWatch'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const UpcomingMoviesPage = (props) => {
@@ -28,7 +29,10 @@ const UpcomingMoviesPage = (props) => {
       movies={movies}
       action={(movie) => {
 
-        return (<PlaylistAddIcon movie={movie} />)
+        return (
+          <AddToMustWatch movie={movie} />
+
+        )
       
       }}
     />
