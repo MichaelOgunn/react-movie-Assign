@@ -10,12 +10,13 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
+import UpcomingMoviesPage from './pages/upcomingMoviesPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 360000,
-      refetchInterval: 360000, 
+      refetchInterval: 360000,
       refetchOnWindowFocus: false
     },
   },
@@ -29,12 +30,13 @@ const App = () => {
         <MoviesContextProvider>
           <Routes>
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-            <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+            <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
-                    <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-
+            <Route path="/reviews/form" element={<AddMovieReviewPage />} />
+            <Route path="/movies/upcoming" element={<UpcomingMoviesPage/>} />
+            
             <Route path="/" element={<HomePage />} />
-            <Route path="*" element={ <Navigate to="/" /> } />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </MoviesContextProvider>
       </BrowserRouter>
@@ -45,5 +47,5 @@ const App = () => {
 
 
 
-const rootElement = createRoot( document.getElementById("root") )
+const rootElement = createRoot(document.getElementById("root"))
 rootElement.render(<App />);
