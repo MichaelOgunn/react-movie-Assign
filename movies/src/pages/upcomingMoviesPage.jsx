@@ -4,6 +4,7 @@ import Spinner from "../components/spinner";
 import { getUpcomingMovies } from "../api/tmdb-api";
 import PageTemplate from "../components/templateMovieListPage";
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const UpcomingMoviesPage = (props) => {
   const { data, error, isPending, isError } = useQuery({
@@ -26,7 +27,9 @@ const UpcomingMoviesPage = (props) => {
       title="Upcoming Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+
+        return (<PlaylistAddIcon movie={movie} />)
+      
       }}
     />
   );
