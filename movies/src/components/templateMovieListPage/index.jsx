@@ -16,6 +16,7 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
+  
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
