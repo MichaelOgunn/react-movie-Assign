@@ -23,7 +23,7 @@ const PopularTVPage = (props) => {
   return (
      <PageTemplate
       title='Popular TV Shows'
-      movies={shows}
+      shows={shows}
       action={(show) =>{
         return (
           <>
