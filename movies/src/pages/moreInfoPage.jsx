@@ -2,14 +2,12 @@ import React from "react";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import PageTemplate from "../components/templateMoviePage";
-import MovieCredits from "../components/movieCredits";
-import SimilarMovies from "../components/similarMovies";
-import { getMovie, getMovieCredits } from "../api/tmdb-api";
+import { getMovie } from "../api/tmdb-api";
+import MovieExtraTabs from "../components/movieExtraTabs";
 
 const MovieDetailsExtensionPage = () => {
   const { id } = useParams();
 
-  // ✅ Fetch movie details
   const {
     data: movie,
     error: movieError,
@@ -19,24 +17,13 @@ const MovieDetailsExtensionPage = () => {
     queryFn: getMovie,
   });
 
-  // ✅ Fetch credits
-  const {
-    data: credits,
-    error: creditsError,
-    isLoading: creditsLoading,
-  } = useQuery({
-    queryKey: ["credits", { id }],
-    queryFn: getMovieCredits,
-  });
-
-  if (movieLoading || creditsLoading) return <p>Loading...</p>;
-  if (movieError || creditsError) return <p>Error loading data.</p>;
-  if (!movie) return <p>Movie details not available.</p>;
+  if (movieLoading) return <p>Loading...</p>;
+  if (movieError) return <p>Error loading movie.</p>;
+  if (!movie) return <p>Movie not found.</p>;
 
   return (
     <PageTemplate movie={movie}>
-      {credits && <MovieCredits credits={credits} />}
-      <SimilarMovies movie={movie} /> {/* ✅ Correct way */}
+      <MovieExtraTabs movie={movie} />
     </PageTemplate>
   );
 };
