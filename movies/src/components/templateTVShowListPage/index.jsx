@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
-import TVShowList from "../tvShowList"; 
+import TVShowList from "../tvShowlist"; 
 import Grid from "@mui/material/Grid";
 
 function TemplateTVShowListPage({ shows, title, action }) {

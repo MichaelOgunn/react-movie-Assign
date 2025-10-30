@@ -10,6 +10,7 @@ const MovieReviewPage = (props) => {
   return (
     <PageTemplate movie={movie}>
       <MovieReview review={review} />
+      
     </PageTemplate>
   );
 };

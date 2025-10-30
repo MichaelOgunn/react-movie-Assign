@@ -9,6 +9,9 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import { Box } from '@mui/material';
+import { Link } from "react-router";
+import {Button} from "@mui/material";
 
 
 const root = {
@@ -61,6 +64,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
       
+      
       <Paper component="ul" sx={{...root}}>
         <Chip label="Production Countries" sx={{...chip}} color="primary" />
         {movie.production_countries.map((c) => (
@@ -69,6 +73,18 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           </li>
         ))}
       </Paper>
+       <Box sx={{ marginTop: 2, display: 'flex', gap: 2 }}>
+        <Link to={`/movies/${movie.id}/credits`}>
+          <Button variant="contained" color="primary">
+            View Credits
+          </Button>
+        </Link>
+        <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="contained" color="primary">
+            Similar Movies
+          </Button>
+        </Link>
+      </Box>
             <Fab
         color="secondary"
         variant="extended"

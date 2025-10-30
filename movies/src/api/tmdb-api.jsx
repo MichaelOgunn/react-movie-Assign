@@ -152,38 +152,43 @@ export const getPopularTV = () => {
       throw error
   });
 };
-export const getMovieCredits = (args) => {
-  const [, idPart] = args.queryKey;
+export const getMovieCredits = ({ queryKey }) => {
+  const [, idPart] = queryKey;
   const { id } = idPart;
+
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
-    return response.json();
-  })
-  .catch((error) => {
-    throw error
- });
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
-export const getSimilarMovies = (args) => {
-  const [, idPart] = args.queryKey;
+
+export const getSimilarMovies = ({ queryKey }) => {
+  const [, idPart] = queryKey;
   const { id } = idPart;
+
   return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
-    return response.json();
-  })
-  .catch((error) => {
-    throw error
- });
+    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
