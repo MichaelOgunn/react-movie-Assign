@@ -33,7 +33,7 @@ export const getMovie = (args) => {
     throw error
  });
 };
-export const getTvshow = (args) => {
+export const getTvShow = (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
