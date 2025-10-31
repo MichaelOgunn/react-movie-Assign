@@ -4,7 +4,7 @@ import Spinner from "../components/spinner";
 import { getPopularTV } from "../api/tmdb-api";
 import PageTemplate from "../components/templateTVShowListPage";
 import AddToFavoritesIconShows from "../components/cardIcons/addToFavShows";
-import AddToMustWatch from '../components/cardIcons/mustWatch'
+import AddToMustWatch from '../components/cardIcons/mustWatchShows'
 
 const PopularTVPage = (props) => {
     const { data, error, isPending, isError } = useQuery({
@@ -28,7 +28,7 @@ const PopularTVPage = (props) => {
         return (
           <>
             <AddToFavoritesIconShows show={show} />
-            <AddToMustWatch movie={show} />
+            <AddToMustWatch show={show} />
           </>
         );
         
