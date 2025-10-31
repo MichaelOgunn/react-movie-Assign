@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from "../components/spinner";
 import { getPopularTV } from "../api/tmdb-api";
 import PageTemplate from "../components/templateTVShowListPage";
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToFavoritesIconShows from "../components/cardIcons/addToFavShows";
 import AddToMustWatch from '../components/cardIcons/mustWatch'
 
 const PopularTVPage = (props) => {
@@ -27,7 +27,7 @@ const PopularTVPage = (props) => {
       action={(show) =>{
         return (
           <>
-            <AddToFavoritesIcon movie={show} />
+            <AddToFavoritesIconShows show={show} />
             <AddToMustWatch movie={show} />
           </>
         );

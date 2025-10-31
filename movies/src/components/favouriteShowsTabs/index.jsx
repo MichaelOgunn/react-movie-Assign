@@ -11,7 +11,7 @@ import RemoveFromFavorites from "../cardIcons/removeFromFavorites";
 import WriteReview from "../cardIcons/writeReview";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
-export default function FavoriteTabs() {
+export default function FavoriteShowTabs() {
   const {
     favorites: favoriteIds = [], // ✅ prevent undefined
     mustWatch: mustWatchIds = [],
