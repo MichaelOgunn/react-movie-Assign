@@ -155,6 +155,9 @@ const SiteHeader = () => {
                 <MenuItem onClick={() => handleMenuSelect("/movies/popularTV")}>
                   Popular TV
                 </MenuItem>
+                <MenuItem onClick={() => handleMenuSelect("/movies/favoritesShow")}>
+                  Favourite TV
+                </MenuItem>
               </Menu>
             </>
           )}

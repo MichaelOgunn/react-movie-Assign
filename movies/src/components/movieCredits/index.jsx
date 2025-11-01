@@ -21,6 +21,8 @@ export default function MovieCredits({ movie }) {
   if (isPending) return <Spinner />;
   if (isError) return <h1>{error.message}</h1>;
 
+/* The line `const credits = data?.cast || [];` is creating a variable `credits` that will store the
+cast information retrieved from the API response. */
   const credits = data?.cast || [];
 
   if (credits.length === 0) {
@@ -39,6 +41,10 @@ export default function MovieCredits({ movie }) {
         </TableHead>
         <TableBody>
           {credits.map((c) => (
+            /* The line `<TableRow key={c.cast_id || c.credit_id}>` is setting the unique key for each
+            TableRow component in the map function. In React, when rendering a list of components
+            using a map function, each component should have a unique key prop to help React
+            identify which items have changed, are added, or are removed. */
             <TableRow key={c.cast_id || c.credit_id}>
               <TableCell component="th" scope="row">
                 {c.name}
